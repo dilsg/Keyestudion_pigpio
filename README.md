@@ -14,7 +14,7 @@ sudo make install
 sudo ldconfig
 sudo systemctl daemon-reload
 sudo systemctl enable --now pigpiod
-</code>code>
+</code>
 
 
 Hat bei mir nicht geklappt - kein Service gestartet
@@ -29,8 +29,8 @@ DOLLAR="\$"
 PIGPIOD_SERVICE="/lib/systemd/system/pigpiod.service"
 	if [[ ! -f "${DOLLAR}{PIGPIOD_SERVICE}" ]] ; then
 	  # The configuration of pigpiod appears to be different on 32 bit and 64 bit systems
-  # pigpiod must be run with -t0 on a 64 bit system, and -t1 on a 32 bit system.
-  # The 32 bit behaviour contradicts what is documented in the pigpiod web documentation ;-(
+      # pigpiod must be run with -t0 on a 64 bit system, and -t1 on a 32 bit system.
+      # The 32 bit behaviour contradicts what is documented in the pigpiod web documentation ;-(
   ARCH=${DOLLAR}(uname -m)
 	  if [[ "${DOLLAR}{ARCH}" == "aarch64" ]] ; then
     T_COMMAND="-t0"
