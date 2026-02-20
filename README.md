@@ -49,8 +49,7 @@ PIGPIOD_SERVICE="/lib/systemd/system/pigpiod.service"
     echo "I guess use same settings as for armv6l?"
     exit 1
   fi
-	  # We are going to overwrite the systemd configuration file for pigpiod
-      # because we are going to change the launch options
+	  # We are going to overwrite the systemd configuration file for pigpiod because we are going to change the launch options
   cat << END > "${DOLLAR}{PIGPIOD_SERVICE}"
 [Unit]
 Description=Daemon required to control GPIO pins via pigpio
@@ -70,5 +69,4 @@ EOF
 </code>	
 	Aus <https://github.com/joan2937/pigpio/issues/632> 
 	
-<img width="730" height="999" alt="image" src="https://github.com/user-attachments/assets/f36ab0ea-f36c-405c-a5c4-36cdf398f112" />
 
