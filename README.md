@@ -4,6 +4,7 @@ https://github.com/joan2397/pigpio/
 Installiere Zeugs
 sudo apt install -y python3-setuptools python3-full
 
+<code>
 sudo apt-get --yes --allow-change-held-packages install --no-install-recommends python3-setuptools python3-full
 wget https://github.com/joan2937/pigpio/archive/refs/tags/v79.tar.gz
 tar zxf v79.tar.gz
@@ -13,6 +14,8 @@ sudo make install
 sudo ldconfig
 sudo systemctl daemon-reload
 sudo systemctl enable --now pigpiod
+</code>code>
+
 
 Hat bei mir nicht geklappt - kein Service gestartet
 
@@ -47,16 +50,16 @@ PIGPIOD_SERVICE="/lib/systemd/system/pigpiod.service"
     exit 1
   fi
 	  # We are going to overwrite the systemd configuration file for pigpiod
-  # because we are going to change the launch options
+      # because we are going to change the launch options
   cat << END > "${DOLLAR}{PIGPIOD_SERVICE}"
 [Unit]
 Description=Daemon required to control GPIO pins via pigpio
-	[Service]
+[Service]
 Type=forking
 ExecStart=/usr/local/bin/pigpiod -l -s10 ${DOLLAR}{T_COMMAND} -x0xFFFFFFF
 Restart=always
 ExecStop=/bin/systemctl kill pigpiod
-	[Install]
+[Install]
 WantedBy=multi-user.target
 END
 else
