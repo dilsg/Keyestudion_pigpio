@@ -1,3 +1,8 @@
+Motivation:
+Warum zittert der Servo?
+Der Raspberry Pi erzeugt mit RPi.GPIO ein Software-PWM-Signal. Da Linux kein Echtzeit-Betriebssystem ist, wird das Signal ständig durch andere Hintergrundprozesse unterbrochen. Diese winzigen Timing-Schwankungen interpretiert der Servo als Befehl, seine Position minimal zu korrigieren – er zittert. 
+Die Lösung: pigpio
+==================================================================================
 I made this on my Raspberry 4B like
 https://github.com/joan2397/pigpio/
 
